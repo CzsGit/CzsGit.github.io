@@ -1,0 +1,1162 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "5cf6eee3"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="python,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Czs--从此蜕变" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="官方文档： https://docs.djangoproject.com/en/1.7/topics/settings/ https://docs.djangoproject.com/en/1.7/ref/settings/">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django—setting.py配置">
+<meta property="og:url" content="https://CzsGit.github.io/blog/2017/06/15/Django—setting-py配置.html">
+<meta property="og:site_name" content="Czs--从此蜕变">
+<meta property="og:description" content="官方文档： https://docs.djangoproject.com/en/1.7/topics/settings/ https://docs.djangoproject.com/en/1.7/ref/settings/">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-07-14T01:58:42.805Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django—setting.py配置">
+<meta name="twitter:description" content="官方文档： https://docs.djangoproject.com/en/1.7/topics/settings/ https://docs.djangoproject.com/en/1.7/ref/settings/">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'I5NNR10IYZ',
+      apiKey: '8ced934e3c2addf8422af5055ae32cbe',
+      indexName: 'search',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://CzsGit.github.io/blog/2017/06/15/Django—setting-py配置.html">
+
+
+
+
+
+  <title> Django—setting.py配置 | Czs--从此蜕变 </title>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ffeda343fa4cf809bf958447815cbf59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+
+
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Czs--从此蜕变</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <h1 class="site-subtitle" itemprop="description"></h1>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://CzsGit.github.io/blog/2017/06/15/Django—setting-py配置.html">
+
+  <span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Czs">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Czs--从此蜕变">
+    <span style="display:none" itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Czs--从此蜕变" src="/images/avatar.jpg">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Django—setting.py配置
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T20:58:48+08:00">
+                2017-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2017/06/15/Django—setting-py配置.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="/blog/2017/06/15/Django—setting-py配置.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->  
+            
+          
+
+          
+
+          
+          
+             <span id="/blog/2017/06/15/Django—setting-py配置.html" class="leancloud_visitors" data-flag-title="Django—setting.py配置">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+		  
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3,663 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  15 分钟
+                </span>
+              
+            </div>
+          
+		  
+          
+ 
+        
+
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>官方文档：</p>
+<p><a href="https://docs.djangoproject.com/en/1.7/topics/settings/" target="_blank" rel="noopener">https://docs.djangoproject.com/en/1.7/topics/settings/</a></p>
+<p><a href="https://docs.djangoproject.com/en/1.7/ref/settings/" target="_blank" rel="noopener">https://docs.djangoproject.com/en/1.7/ref/settings/</a></p>
+<a id="more"></a>
+<p>setting.py<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br></pre></td><td class="code"><pre><span class="line">          这个文件包含了所有有关这个Django项目的配置信息，均大写：   TEMPLATE_DIRS , DATABASE_NAME , 等. 最重要的设置是 ROOT_URLCONF，它将作为 URLconf 告诉 Django 在这个站点中那些 Python的模块将被用到。</span><br><span class="line"></span><br><span class="line">          使用 Django 时, 你必须告诉它你使用的是哪个 settings . 要做到这一点，使用环境变量DJANGO_SETTINGS_MODULE.</span><br><span class="line"></span><br><span class="line">默认 settings</span><br><span class="line">       如果不需要, Django settings 文件可以不必定义任何 settings. 因为每个设置都有默认值. 这些默认值定义在django/conf/global_settings.py.</span><br><span class="line"></span><br><span class="line">使用 settings 的法则:</span><br><span class="line"></span><br><span class="line">从 global_settings.py 载入默认设置. </span><br><span class="line">从指定的 settings 文件载入用户设置, 需要时覆盖掉默认设置.注意一个用户 settings 文件，不必导入 global_settings, 这是多余的.</span><br><span class="line"></span><br><span class="line">查看你改变了哪些设置</span><br><span class="line">有一个简单的办法可以查看你修改了哪些设置.命令 python manage.py diffsettings 显示当前 settings 文件与Django 默认设置的不同之处.</span><br><span class="line"></span><br><span class="line">在你的代码中使用 settings</span><br><span class="line">通过从模块 django.conf.settings 导入你需要的变量, 你的代码可以访问这个变量. 例子:</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.conf.settings <span class="keyword">import</span> DEBUG</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> DEBUG:</span><br><span class="line">                  <span class="comment"># Do something</span></span><br><span class="line">注意一定 不要 从 global_settings 或你自己的 settings 模块导入设置变量到你的代码. django.conf.settings 概括了默认设置和站点自定义设置的概念,它提供了一个统一的接口用于用户代码访问, 也降低了用户代码与用户设置的耦合程度.</span><br><span class="line"></span><br><span class="line">在运行时修改 settings</span><br><span class="line">         不应该在程序运行时修改 settings. 举例来说, 不要在一个 view 中做这样的事:</span><br><span class="line"></span><br><span class="line">                       <span class="keyword">from</span> django.conf.settings <span class="keyword">import</span> DEBUG</span><br><span class="line"></span><br><span class="line">                        DEBUG = True   <span class="comment"># Don't do this!</span></span><br><span class="line">      你只应该在你的 settings 文件中设置 settings, 记住,这是原则.</span><br><span class="line"></span><br><span class="line">安全性</span><br><span class="line">由于 settings 文件包含敏感信息,象数据库密码等.你应该非常小心的设置它的访问权限. 举例来说, 你可以只允许你和 WEB 服务器用户阅读该文件.在一个共享主机环境时,这一点格外重要.</span><br><span class="line"></span><br><span class="line">可用选项</span><br><span class="line"></span><br><span class="line">下面是所有可用选项的列表及它们的默认值(按字母顺序排列).</span><br><span class="line"></span><br><span class="line">ABSOLUTE_URL_OVERRIDES        默认值: &#123;&#125; (空字典)</span><br><span class="line"></span><br><span class="line">一个字典映射 <span class="string">"app_label.module_name"</span> 字符串到一个函数, 该函数接受一个model对象作为参数并返回它的URL. 这是在一个安装上覆盖 get_absolute_url() 方法的一种方式. 例子:</span><br><span class="line"></span><br><span class="line">ABSOLUTE_URL_OVERRIDES =</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">'blogs.blogs'</span>: lambda o: <span class="string">"/blogs/%s/"</span> % o.slug,</span><br><span class="line">    <span class="string">'news.stories'</span>: lambda o: <span class="string">"/stories/%s/%s/"</span> % (o.pub_year, o.slug),</span><br><span class="line">        &#125;</span><br><span class="line">           ADMIN_FOR            默认值: () (空的tuple)</span><br><span class="line"></span><br><span class="line">用于 admin-site settings 模块, 若当前站点是 admin ,它则是一个由 settings 模块组成的 tuple (类似<span class="string">'foo.bar.baz'</span> 这样的格式).</span><br><span class="line"></span><br><span class="line">admin 站点在 models, views,及 template tags 的自动内省的文档中使用该设置.</span><br><span class="line"></span><br><span class="line">ADMIN_MEDIA_PREFIX 默认值: <span class="string">'/media/'</span></span><br><span class="line"></span><br><span class="line">The URL prefix <span class="keyword">for</span> admin media -- CSS, JavaScript <span class="keyword">and</span> images. Make sure to use a trailing slash.</span><br><span class="line"></span><br><span class="line">ADMINS                     默认值: () (空的 tuple)</span><br><span class="line"></span><br><span class="line">一个<span class="number">2</span>-元素tuple的 tuple. 列出了有权接收代码错误提示的人. 当 DEBUG=False 时,一个 view 引发了异常, Django 会将详细异常信息用电子邮件的方式发送给这些人. 该tuple的每个成员应该是这种格式: (Full name, e-mail address). 例子:</span><br><span class="line"></span><br><span class="line">((<span class="string">'John'</span>,<span class="string">'john@example.com'</span>), (<span class="string">'Mary'</span>,<span class="string">'mary@example.com'</span>))</span><br><span class="line">      ALLOWED_INCLUDE_ROOTS        默认值: () (空的 tuple)</span><br><span class="line"></span><br><span class="line">一个字符串tuple, 只有以列表中的元素为前缀的模板Django才可以以`<span class="javascript"></span>`&#123;% ssi %&#125;`<span class="javascript"></span>` 形式访问 . 出于安全考虑, 在不应该访问时,即使是模板的作者也不能访问这些文件.</span><br><span class="line"></span><br><span class="line">举例来说, 若 ALLOWED_INCLUDE_ROOTS 是 (<span class="string">'/home/html'</span>, <span class="string">'/var/www'</span>), 那么 &#123;% ssi /home/html/foo.txt %&#125; 可以正常工作, 不过 &#123;% ssi /etc/passwd %&#125; 却不能.</span><br><span class="line"></span><br><span class="line">APPEND_SLASH 默认值: True</span><br><span class="line"></span><br><span class="line">是否给URL添加一个结尾的斜线. 只有安装了 CommonMiddleware 之后,该选项才起作用. (参阅 middleware 文档). 参阅 PREPEND_WWW.</span><br><span class="line"></span><br><span class="line">CACHE_BACKEND默认值: <span class="string">'simple://'</span></span><br><span class="line"></span><br><span class="line">后端使用的 cache . 参阅 cache docs.</span><br><span class="line"></span><br><span class="line">CACHE_MIDDLEWARE_KEY_PREFIX默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">cache 中间件使用的cache key 前缀. 参阅 cache docs.</span><br><span class="line"></span><br><span class="line">DATABASE_ENGINE默认值: <span class="string">'postgresql'</span></span><br><span class="line"></span><br><span class="line">后端使用的数据库引擎: <span class="string">'postgresql'</span>, <span class="string">'mysql'</span>, <span class="string">'sqlite3'</span> 或 <span class="string">'ado_mssql'</span> 中的任意一个.</span><br><span class="line"></span><br><span class="line">DATABASE_HOST默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">数据库所在的主机. 空的字符串意味着 localhost. SQLite 不需要该项. 如果你使用 MySQL 并且该选项的值以一个斜线 (<span class="string">'/'</span>) 开始, MySQL 则通过一个 Unix socket 连接到指定的 socket. 比如:</span><br><span class="line"></span><br><span class="line">DATABASE_HOST = <span class="string">'/var/run/mysql'</span></span><br><span class="line">如果你使用 MySQL 并且该选项的值 不是 以斜线开始, 那么该选项的值就是主机的名字.</span><br><span class="line"></span><br><span class="line">DATABASE_NAME默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">要使用的数据库名字. 对 SQLite, 它必须是一个数据库文件的全路径名字.</span><br><span class="line"></span><br><span class="line">DATABASE_PASSWORD默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">连接数据库需要的密码. SQLite 不需要该项.</span><br><span class="line"></span><br><span class="line">DATABASE_PORT默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">连接数据库所需的数据库端口. 空的字符串表示默认端口. SQLite 不需要该项.</span><br><span class="line"></span><br><span class="line">DATABASE_USER默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">连接数据库时所需要的用户名. SQLite 不需要该项.</span><br><span class="line"></span><br><span class="line">DATE_FORMAT默认值: <span class="string">'N j, Y'</span> (举例来说 Feb. <span class="number">4</span>, <span class="number">2003</span>)</span><br><span class="line"></span><br><span class="line">在 Django admin change-list 页对日期字段使用的默认日期格式, 系统中的其它部分也可能使用该格式. 参阅allowed date format strings.</span><br><span class="line"></span><br><span class="line">参阅 DATETIME_FORMAT 和 TIME_FORMAT.</span><br><span class="line"></span><br><span class="line">DATETIME_FORMAT</span><br><span class="line">默认值: <span class="string">'N j, Y, P'</span> (举例来说 Feb. <span class="number">4</span>, <span class="number">2003</span>, <span class="number">4</span> p.m.)</span><br><span class="line"></span><br><span class="line">在 Django admin change-list 页对日期时间字段使用的默认日期时间格式, 系统中的其它部分也可能使用该格式. 参阅 allowed date format strings.</span><br><span class="line"></span><br><span class="line">参阅 DATE_FORMAT 和 TIME_FORMAT.</span><br><span class="line"></span><br><span class="line">DEBUG默认值: False</span><br><span class="line"></span><br><span class="line">一个开关调试模式的逻辑值</span><br><span class="line"></span><br><span class="line">DEFAULT_CHARSET默认值: <span class="string">'utf-8'</span></span><br><span class="line"></span><br><span class="line">如果一个 MIME 类型没有人为指定, 对所有 HttpResponse 对象将应用该默认字符集. 使用DEFAULT_CONTENT_TYPE 来构建 Content-Type 头.</span><br><span class="line"></span><br><span class="line">DEFAULT_CONTENT_TYPE默认值: <span class="string">'text/html'</span></span><br><span class="line"></span><br><span class="line">如果一个 MIME 类型没有人为指定, 对所有 HttpResponse 对象将应用该默认 content type. 使用DEFAULT_CHARSET 来构建 Content-Type 头.</span><br><span class="line"></span><br><span class="line">DEFAULT_FROM_EMAIL默认值: <span class="string">'webmaster@localhost'</span></span><br><span class="line"></span><br><span class="line">用于发送(站点自动生成的)管理邮件的默认 e-mail 邮箱.</span><br><span class="line"></span><br><span class="line">DISALLOWED_USER_AGENTS默认值: () (空的 tuple)</span><br><span class="line"></span><br><span class="line">一个编译的正则表达式对象列表,用于表示一些用户代理字符串.这些用户代理将被禁止访问系统中的任何页面. 使用这个对付页面机器人或网络爬虫.只有安装 CommonMiddleware 后这个选项才有用(参阅 middleware 文档).</span><br><span class="line"></span><br><span class="line">EMAIL_HOST默认值: <span class="string">'localhost'</span></span><br><span class="line"></span><br><span class="line">用来发送 e-mail 的主机. 参阅 EMAIL_PORT.</span><br><span class="line"></span><br><span class="line">EMAIL_HOST_PASSWORD默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">EMAIL_HOST 中定义的 SMTP 服务器使用的密码. 如果为空, Django 不会尝试进行认证.</span><br><span class="line"></span><br><span class="line">参阅 EMAIL_HOST_USER.</span><br><span class="line"></span><br><span class="line">EMAIL_HOST_USER默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">EMAIL_HOST 中定义的 SMTP 服务器使用的用户名. 如果为空, Django 不会尝试进行认证.</span><br><span class="line"></span><br><span class="line">参阅 EMAIL_HOST_PASSWORD.</span><br><span class="line"></span><br><span class="line">EMAIL_PORT默认值: <span class="number">25</span></span><br><span class="line"></span><br><span class="line">EMAIL_HOST 中指定的SMTP 服务器所使用的端口号.</span><br><span class="line"></span><br><span class="line">EMAIL_SUBJECT_PREFIX默认值: <span class="string">'[Django] '</span></span><br><span class="line"></span><br><span class="line">django.core.mail.mail_admins 或 django.core.mail.mail_managers 发送的邮件的主题前缀.</span><br><span class="line"></span><br><span class="line">ENABLE_PSYCO默认值: False</span><br><span class="line"></span><br><span class="line">如果允许 Psyco, 将使用Pscyo优化 Python 代码. 需要 Psyco 模块.</span><br><span class="line"></span><br><span class="line">IGNORABLE_404_ENDS默认值: (<span class="string">'mail.pl'</span>, <span class="string">'mailform.pl'</span>, <span class="string">'mail.cgi'</span>, <span class="string">'mailform.cgi'</span>, <span class="string">'favicon.ico'</span>, <span class="string">'.php'</span>)</span><br><span class="line"></span><br><span class="line">参阅 IGNORABLE_404_STARTS.</span><br><span class="line"></span><br><span class="line">IGNORABLE_404_STARTS默认值: (<span class="string">'/cgi-bin/'</span>, <span class="string">'/_vti_bin'</span>, <span class="string">'/_vti_inf'</span>)</span><br><span class="line">*</span><br><span class="line">一个字符串 tuple . 以该tuple中元素为开头的 URL 应该被 <span class="number">404</span> e-mailer 忽略. 参阅SEND_BROKEN_LINK_EMAILS 和 IGNORABLE_404_ENDS.</span><br><span class="line"></span><br><span class="line">INSTALLED_APPS默认值: () (空的 tuple)</span><br><span class="line"></span><br><span class="line">一个字符串tuple ,内容是本 Django 安装中的所有应用. 每个字符串应该是一个包含Django应用程序的Python包的路径全称, django-admin.py startapp 会自动往其中添加内容.</span><br><span class="line"></span><br><span class="line">INTERNAL_IPS默认值: () (空的 tuple)</span><br><span class="line"></span><br><span class="line">一个 ip 地址的 tuple(字符串形式), 它:</span><br><span class="line"></span><br><span class="line">当 DEBUG 为 True 时,参阅调试务注解</span><br><span class="line">接收 X 头(若 XViewMiddleware 已安装), (参阅 middleware 文档) </span><br><span class="line">JING_PATH</span><br><span class="line">默认值: <span class="string">'/usr/bin/jing'</span></span><br><span class="line"></span><br><span class="line"><span class="string">"Jing"</span> 执行文件路径全名. Jing 是一个 RELAX NG 校验器, Django 使用它对你的 model 的 XMLField 进行验证. 参阅 http:<span class="regexp">//</span>www.thaiopensource.com/relaxng/jing.html .</span><br><span class="line"></span><br><span class="line">LANGUAGE_CODE默认值: <span class="string">'en-us'</span></span><br><span class="line"></span><br><span class="line">表示默认语言的一个字符串. 必须是标准语言格式. 举例来说, U.S. English 就是 <span class="string">"en-us"</span>. 参阅internationalization docs.</span><br><span class="line"></span><br><span class="line">LANGUAGES默认值: 一个 tuple (内容为所有可用语言). 目前它的值是:</span><br><span class="line"></span><br><span class="line">LANGUAGES = (</span><br><span class="line">    (<span class="string">'bn'</span>, _(<span class="string">'Bengali'</span>)),</span><br><span class="line">    (<span class="string">'cs'</span>, _(<span class="string">'Czech'</span>)),</span><br><span class="line">    (<span class="string">'cy'</span>, _(<span class="string">'Welsh'</span>)),</span><br><span class="line">    (<span class="string">'da'</span>, _(<span class="string">'Danish'</span>)),</span><br><span class="line">    (<span class="string">'de'</span>, _(<span class="string">'German'</span>)),</span><br><span class="line">    (<span class="string">'en'</span>, _(<span class="string">'English'</span>)),</span><br><span class="line">    (<span class="string">'es'</span>, _(<span class="string">'Spanish'</span>)),</span><br><span class="line">    (<span class="string">'fr'</span>, _(<span class="string">'French'</span>)),</span><br><span class="line">    (<span class="string">'gl'</span>, _(<span class="string">'Galician'</span>)),</span><br><span class="line">    (<span class="string">'is'</span>, _(<span class="string">'Icelandic'</span>)),</span><br><span class="line">    (<span class="string">'it'</span>, _(<span class="string">'Italian'</span>)),</span><br><span class="line">    (<span class="string">'no'</span>, _(<span class="string">'Norwegian'</span>)),</span><br><span class="line">    (<span class="string">'pt-br'</span>, _(<span class="string">'Brazilian'</span>)),</span><br><span class="line">    (<span class="string">'ro'</span>, _(<span class="string">'Romanian'</span>)),</span><br><span class="line">    (<span class="string">'ru'</span>, _(<span class="string">'Russian'</span>)),</span><br><span class="line">    (<span class="string">'sk'</span>, _(<span class="string">'Slovak'</span>)),</span><br><span class="line">    (<span class="string">'sr'</span>, _(<span class="string">'Serbian'</span>)),</span><br><span class="line">    (<span class="string">'sv'</span>, _(<span class="string">'Swedish'</span>)),</span><br><span class="line">    (<span class="string">'zh-cn'</span>, _(<span class="string">'Simplified Chinese'</span>)),</span><br><span class="line">)</span><br><span class="line">一个<span class="number">2</span>-元素tuple&lt;格式为 (语言代码, 语言名称)&gt;的 tuple. 该设置用于选择可用语言.参阅internationalization docs 了解细节.</span><br><span class="line">*</span><br><span class="line">通常这个默认值就足够了.除非你打算减少提供的语言数目,否则没必要修改这个设置.</span><br><span class="line"></span><br><span class="line">MANAGERS默认值: ADMINS (不论 ADMINS 是否已经设置)</span><br><span class="line"></span><br><span class="line">一个和 ADMINS 同样格式的 tuple , 当 SEND_BROKEN_LINK_EMAILS=True 时, 这些人有权接收死链接通知信息.</span><br><span class="line"></span><br><span class="line">MEDIA_ROOT默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">一个绝对路径, 用于保存媒体文件. 例子: <span class="string">"/home/media/media.lawrence.com/"</span> 参阅 MEDIA_URL.</span><br><span class="line"></span><br><span class="line">MEDIA_URL默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">处理媒体服务的URL(媒体文件来自 MEDIA_ROOT). 如: <span class="string">"http://media.lawrence.com"</span></span><br><span class="line"></span><br><span class="line">MIDDLEWARE_CLASSES</span><br><span class="line">        默认值:</span><br><span class="line"></span><br><span class="line">(<span class="string">"django.contrib.sessions.middleware.SessionMiddleware"</span>,</span><br><span class="line"> <span class="string">"django.contrib.auth.middleware.AuthenticationMiddleware"</span>,</span><br><span class="line"> <span class="string">"django.middleware.common.CommonMiddleware"</span>,</span><br><span class="line"> <span class="string">"django.middleware.doc.XViewMiddleware"</span>)</span><br><span class="line">一个django 用到的中间件 <span class="class"><span class="keyword">class</span> 名称的 <span class="title">tuple</span>. 参阅 <span class="title">middleware</span> 文档.</span></span><br><span class="line"></span><br><span class="line">PREPEND_WWW默认值: False</span><br><span class="line"></span><br><span class="line">是否为没有 <span class="string">"www."</span> 前缀的域名添加 <span class="string">"www."</span> 前缀. 当且仅当安装有 CommonMiddleware 后该选项才有效. (参阅middleware 文档).参阅 APPEND_SLASH.</span><br><span class="line"></span><br><span class="line">ROOT_URLCONF默认值: Not defined</span><br><span class="line"></span><br><span class="line">一个字符串,表示你的根 URLconf 的模块名. 举例来说:<span class="string">"mydjangoapps.urls"</span>. 参阅 Django如何处理一个请求.</span><br><span class="line"></span><br><span class="line">SECRET_KEY默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">一个密码. 用于为密码哈希算法提供一个种子.将其设置为一个随机字符串 -- 越长越好. django-admin.py startproject 会自动给你创建一个.</span><br><span class="line"></span><br><span class="line">SEND_BROKEN_LINK_EMAILS默认值: False</span><br><span class="line"></span><br><span class="line">当有人从一个有效Django-powered页面访问另一个Django-powered页面时发现<span class="number">404</span>错误(也就是发现一个死链接)时, 是否发送一封邮件给 MANAGERS. 当且仅当 安装有 CommonMiddleware 时该选项才有效(参阅`<span class="javascript">middleware 文档</span>`_). 参阅 IGNORABLE_404_STARTS  和 IGNORABLE_404_ENDS.</span><br><span class="line">*</span><br><span class="line">SERVER_EMAIL默认值: <span class="string">'root@localhost'</span></span><br><span class="line"></span><br><span class="line">用来发送错误信息的邮件地址, 比如发送给 ADMINS 和 MANAGERS 的邮件.</span><br><span class="line"></span><br><span class="line">SESSION_COOKIE_AGE默认值: <span class="number">1209600</span> (<span class="number">2</span>周, 以秒计)</span><br><span class="line"></span><br><span class="line">session cookies 的生命周期, 以秒计. 参阅 session docs.</span><br><span class="line"></span><br><span class="line">SESSION_COOKIE_DOMAIN默认值: None</span><br><span class="line"></span><br><span class="line">session cookies 有效的域. 将其值设置为类似 <span class="string">".lawrence.com"</span> 这样 cookie 就可以跨域生效, 或者使用None 作为一个标准的域 cookie. 参阅 session docs.</span><br><span class="line"></span><br><span class="line">SESSION_COOKIE_NAME默认值: <span class="string">'sessionid'</span></span><br><span class="line"></span><br><span class="line">session 使用的cookie 名字. 参阅 session docs.</span><br><span class="line"></span><br><span class="line">SESSION_SAVE_EVERY_REQUEST默认值: False</span><br><span class="line"></span><br><span class="line">是否每次请求都保存session. 参阅 session docs.</span><br><span class="line"></span><br><span class="line">SITE_ID默认值: Not defined</span><br><span class="line"></span><br><span class="line">是一个整数, 表示 django_site 表中的当前站点. 当一个数据包含多个站点数据时，你的程序可以据此 ID 访问特定站点的数据．</span><br><span class="line"></span><br><span class="line">TEMPLATE_CONTEXT_PROCESSORS默认值:</span><br><span class="line"></span><br><span class="line">(<span class="string">"django.core.context_processors.auth"</span>,</span><br><span class="line"><span class="string">"django.core.context_processors.debug"</span>,</span><br><span class="line"><span class="string">"django.core.context_processors.i18n"</span>)</span><br><span class="line">A tuple <span class="keyword">of</span> callables that are used to populate the context <span class="keyword">in</span> RequestContext. These callables take a request object <span class="keyword">as</span> their argument <span class="keyword">and</span> <span class="keyword">return</span> a dictionary <span class="keyword">of</span> items to be merged into the context.</span><br><span class="line"></span><br><span class="line">TEMPLATE_DEBUG默认值: False</span><br><span class="line"></span><br><span class="line">一个布尔值,用来开关模板调试模式.若设置为 True, 如果有任何 TemplateSyntaxError,一个详细的错误报告信息页将被显示给你.这个报告包括有关的模板片断,相应的行会自动高亮.</span><br><span class="line"></span><br><span class="line">注意 Django 仅在 DEBUG 为 True 时显示这个信息页面.</span><br><span class="line"></span><br><span class="line">参阅 DEBUG.</span><br><span class="line"></span><br><span class="line">TEMPLATE_DIRS默认值: () (空的 tuple)</span><br><span class="line"></span><br><span class="line">模板源文件目录列表,按搜索顺序. 注意要使用 Unix-风格的前置斜线(即<span class="string">'/'</span>), 即便是在 Windows 上.</span><br><span class="line"></span><br><span class="line">参阅 template documentation.</span><br><span class="line"></span><br><span class="line">TEMPLATE_LOADERS默认值: (<span class="string">'django.template.loaders.filesystem.load_template_source'</span>,)</span><br><span class="line"></span><br><span class="line">一个元素为可调用对象(字符串形式的)的 tuple. 这些对象知道如何导入 templates 从各种源中. 参阅 template documentation.</span><br><span class="line"></span><br><span class="line">TEMPLATE_STRING_IF_INVALID默认值: <span class="string">''</span> (空的字符串)</span><br><span class="line"></span><br><span class="line">输出文本, 作为一个字符串. 模板系统将会在出错 (比如说拼错了) 时使用该变量. 参阅 How invalid variables are handled.</span><br><span class="line"></span><br><span class="line">TIME_FORMAT默认值: <span class="string">'P'</span> (举例来说 <span class="number">4</span> p.m.)</span><br><span class="line"></span><br><span class="line">Django admin change-list 使用的默认时间格式. 有可能系统的其它部分也使用该格式. 参阅 allowed date format strings.</span><br><span class="line"></span><br><span class="line">参阅 DATE_FORMAT 和 DATETIME_FORMAT.</span><br><span class="line"></span><br><span class="line">TIME_ZONE默认值: <span class="string">'America/Chicago'</span> (我们可以用 <span class="string">'Asia/Shanghai PRC'</span> )</span><br><span class="line"></span><br><span class="line">一个表示当前时区的字符串. 参阅 选择项列表.</span><br><span class="line"></span><br><span class="line">Django 据此设置转换所有的日期/时间 -- 并不考虑服务器的时区设置. 举例来说, 一台服务器可以服务多个Django-powered 站点,每个站点使用一个独立的时区设置.</span><br><span class="line"></span><br><span class="line">USE_ETAGS默认值: False</span><br><span class="line"></span><br><span class="line">一个布尔值.指定是否输出 <span class="string">"Etag"</span> 头. 这个选项可以节省网络带宽,但损失性能. 只有安装 CommonMiddleware 后这个选项才有用(参阅 middleware 文档)</span><br><span class="line"></span><br><span class="line">创建你自己的 settings</span><br><span class="line">         你可以为自己的Django 应用程序创建自定义 settings. 只需要你遵守以下惯例:</span><br><span class="line"></span><br><span class="line">      设置名称全部大写. 如果某项设置是一个序列,优先使用 tuple.这完全是基于性能考虑. 不要为已经存的一个设置重新发明一个名字.</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+  
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+        </div>
+      
+
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>🐶 您的支持将鼓励我继续创作 🐶</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赞赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward-img.jpg" alt="Czs WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-img.jpg" alt="Czs Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+         
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/05/16/python生成图片验证码.html" rel="next" title="python生成图片验证码">
+                <i class="fa fa-chevron-left"></i> python生成图片验证码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/06/23/python中的读方法.html" rel="prev" title="python中的读方法">
+                python中的读方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzc1OC8xMDMxMg=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Czs">
+          <p class="site-author-name" itemprop="name">Czs</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/CzsGit" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/CzsPlace" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com" title="博客园" target="_blank">博客园</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://app.yinxiang.com" title="印象笔记" target="_blank">印象笔记</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.imooc.com" title="慕课网" target="_blank">慕课网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.test404.com" title="Test404" target="_blank">Test404</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-italic"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Czs</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>  |  Hosted and themes by <a href="https://github.com/" style="font-weight: bold">GitHub</a>
+   |  Code trusteeship <a href="https://code.aliyun.com/" style="font-weight: bold">Aliyun</a>
+</div>
+
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("vRaNEPl87csjmiAMIrX8b2U8-gzGzoHsz", "HQhn2RzFq1yTIlFi8McrlK0O");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+  
+</body>
+</html>
