@@ -43,7 +43,7 @@
   
     
   
-  <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
 
 
 
@@ -1318,7 +1318,7 @@ sockfd.bind(ADDR)
       
         
           <p>下面先通过一段代码看看这两个方法的调用顺序：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,*args,**kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"init &amp;&amp;&amp;&amp;  %s"</span> % self.__class__</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls,*args,**kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"new &amp;&amp;&amp;&amp;  %s"</span> % cls</span><br><span class="line">        <span class="keyword">return</span> object.__new__(cls,*args,**kwargs)</span><br><span class="line"></span><br><span class="line">a=A()</span><br></pre></td></tr></table></figure></p>
-<p>输出结果为：<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> &amp;&amp;&amp;&amp;  &lt;<span class="keyword">class</span> <span class="string">'__main__.A'</span>&gt;</span><br><span class="line">init &amp;&amp;&amp;&amp;  &lt;<span class="keyword">class</span> <span class="string">'__main__.A'</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果为：<br><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> &amp;&amp;&amp;&amp;  &lt;<span class="keyword">class</span> <span class="comment">'__main__.A'&gt;</span></span><br><span class="line">init &amp;&amp;&amp;&amp;  &lt;<span class="keyword">class</span> <span class="comment">'__main__.A'&gt;</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/blog/2018/03/21/init-方法和-new-方法的区别.html#more" rel="contents">
@@ -2605,7 +2605,7 @@ sockfd.bind(ADDR)
 
 
   
-  <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
 
   
   <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
@@ -2620,7 +2620,7 @@ sockfd.bind(ADDR)
   <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
 
   
-  <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
 
 
   
